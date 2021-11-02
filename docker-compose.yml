@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  nginx:
+    build: nginx
+    restart: always
+    env_file: nginx.prod.env
+    volumes:
+      - "./data/certs/:/certs/"
+      - "./data/nginx/logs/:/var/log/nginx/"
+    ports:
+      - 443:443
+    networks:
+      - nginx
+
+
+networks:
+  nginx:
+    driver: host
