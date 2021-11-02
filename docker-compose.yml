@@ -9,10 +9,4 @@ services:
       - "./data/nginx/logs/:/var/log/nginx/"
     ports:
       - 443:443
-    networks:
-      - nginx
-
-
-networks:
-  nginx:
-    driver: host
+    network_mode: host
